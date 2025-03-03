@@ -1,0 +1,24 @@
+name: Generate Ascii Artwork
+on: [push]  # Triggers on any push event
+
+jobs:
+  ascii_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install Cowsay Program
+        run: sudo apt-get install cowsay -y  # Use lowercase "cowsay"
+
+      - name: Execute Cowsay Command
+        run: cowsay -f dragon "Run for cover, I am dragon....RWR" > dragon.txt  # Fix command case
+
+      - name: Test File Exists
+        run: grep -i "dragon" dragon.txt  # Verify content
+
+      - name: Read the File
+        run: cat dragon.txt  # Proper indentation
+
+      - name: List Files (Verify Output)
+        run: ls -la  # Check if dragon.txt exists
