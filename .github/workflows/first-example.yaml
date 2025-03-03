@@ -1,0 +1,15 @@
+name: First Workflow  # Workflow name
+on: [push]            # Trigger on push events
+
+jobs:
+  first_job:          # Job ID (no leading dot)
+    runs-on: ubuntu-latest  # Hyphen, not underscore; use latest OS
+    steps:
+      - name: Welcome Message  # Step name (indented under steps)
+        run: echo "Welcome to GitHub Actions!"  # Corrected spelling
+        
+      - name: List Files
+        run: ls 
+
+      - name: read file 
+        run: cat README.md
