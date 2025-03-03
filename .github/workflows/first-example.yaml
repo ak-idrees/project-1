@@ -5,6 +5,8 @@ jobs:
   first_job:          # Job ID (no leading dot)
     runs-on: ubuntu-latest  # Hyphen, not underscore; use latest OS
     steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
       - name: Welcome Message  # Step name (indented under steps)
         run: echo "Welcome to GitHub Actions!"  # Corrected spelling
         
