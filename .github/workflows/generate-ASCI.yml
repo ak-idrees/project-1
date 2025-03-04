@@ -2,7 +2,7 @@ name: Generate Ascii Artwork
 on: [push]  # Triggers on any push event
 
 jobs:
-  ascii_job:
+  build_job_1:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -13,6 +13,16 @@ jobs:
 
       - name: Execute Cowsay Command
         run: cowsay -f dragon "Run for cover, I am dragon....RWR" > dragon.txt  # Fix command case
+      - name: Sleep For 30 Second
+        run: sleep 30 Second
+  Test_job_2:
+     runs-on: ubuntu-latest
+  steps:
+     - name: sleep for 30 Second
+       run: sleep 30 Second
+     - name: Test Files Exists
+       run: grep -i "dragon" dragon.txt
+  Deploy_job_3:
 
       - name: Test File Exists
         run: grep -i "dragon" dragon.txt  # Verify content
